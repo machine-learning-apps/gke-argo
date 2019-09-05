@@ -2,7 +2,7 @@ name: 'gke-argo'
 description: Trigger an Argo Workflow on GKE
 author: Hamel Husain
 inputs:
-  argo_uri:
+  argo_url:
     description: The endpoint where your Argo UI is hosted.  This is used to build the link for dashboard of unique runs. 
     required: true
   application_credentials:
@@ -11,14 +11,14 @@ inputs:
   project_id:
     description: name of the GCP Project where the GKE K8s cluster resides.
     require: true
-  location-zone:
+  location_zone:
     description: The location-zone where your GKE K8s cluster resides, for example `us-west1-a`
     require: true
   cluster_name:
-    description: the name of your GKE K8s cluster
+    description: The name of your GKE K8s cluster
     require: true
-  workflow_yaml:
-    description: the YAML file that describes the workflow you want to run on Argo.
+  workflow_yaml_path:
+    description: The full path name including the filename of the YAML file that describes the workflow you want to run on Argo.  This should be relative to the root of the GitHub repository where the Action is triggered.
     require: true
 outputs:
   WORKFLOW_URL:
