@@ -1,0 +1,18 @@
+name: Integration Test
+on: [push]
+obs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout files in repo
+      uses: actions/checkout@master
+    - name: run action on example 1
+      uses: machine-learning-apps/gke-argo
+      with:
+        argo_url: ${{ secrets.ARGO_URL }}
+        application_credentials: ${{ secrets.APPLICATION_CREDENTIALS }}
+        project_id: ${{ secrets.PROJECT_ID }}
+        location_zone: ${{ secrets.LOCATION_ZONE }}
+        cluster_name: ${{ secrets.CLUSTER_NAME }}
+        workflow_yaml_path: "examples/coinflip.yaml"
+        parameter_file_path: "examples/arguments-parameters.yaml"
