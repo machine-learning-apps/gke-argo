@@ -51,7 +51,7 @@ spec:
       - name: heads-message
     container:
       image: alpine:3.6
-      command: [sh, -c]
+      command: [sh, -c, echo]
       args: ["{{inputs.parameters.heads-message}}"]
 
   - name: tails
@@ -60,5 +60,5 @@ spec:
       - name: tails-message
     container:
       image: alpine:3.6
-      command: [sh, -c]
+      command: [sh, -c, echo]
       args: ["{{inputs.parameters.tails-message}}"]
