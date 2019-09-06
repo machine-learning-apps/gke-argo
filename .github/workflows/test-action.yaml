@@ -7,6 +7,7 @@ jobs:
     - name: checkout files in repo
       uses: actions/checkout@master
     - name: run action on example 1
+      id: argo
       uses: machine-learning-apps/gke-argo@master
       with:
         argo_url: ${{ secrets.ARGO_URL }}
@@ -16,3 +17,7 @@ jobs:
         cluster_name: ${{ secrets.CLUSTER_NAME }}
         workflow_yaml_path: "examples/coinflip.yaml"
         parameter_file_path: "examples/arguments-parameters.yaml"
+    - name: test argo outputs
+      run: echo "Argo URL: $WORKFLOW_URL"
+      env:
+        WORKFLOW_URL: ${{ steps.argo.outputs.WORKFLOW_URL }}
