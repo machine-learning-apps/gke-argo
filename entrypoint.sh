@@ -6,7 +6,7 @@ set -e
 
 ############ Helper Functions ############
 
-function check_env(){
+function check_env() {
     if [ -z $(eval echo "\$$1") ]; then
         echo "Variable $1 not found.  Exiting..."
         exit 1
