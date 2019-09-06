@@ -7,7 +7,7 @@ jobs:
     - name: checkout files in repo
       uses: actions/checkout@master
     - name: run action on example 1
-      uses: machine-learning-apps/gke-argo
+      uses: machine-learning-apps/gke-argo@master
       with:
         argo_url: ${{ secrets.ARGO_URL }}
         application_credentials: ${{ secrets.APPLICATION_CREDENTIALS }}
