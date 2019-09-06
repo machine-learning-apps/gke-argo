@@ -21,7 +21,7 @@ inputs:
     description: The full path name including the filename of the YAML file that describes the workflow you want to run on Argo.  This should be relative to the root of the GitHub repository where the Action is triggered.
     require: true
   parameter_file_path:
-    description: Parameter file that allow you to specify dynamic values in your workflow file.
+    description: Parameter file that allows you to change variables in your workflow file.
     require: false
     default: ""
 outputs:
