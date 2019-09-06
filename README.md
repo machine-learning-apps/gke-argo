@@ -21,6 +21,8 @@ Model multi-step workflows as a sequence of tasks or capture the dependencies be
 
 ### Example Workflow That Uses This Action
 
+This action is the third step in the below example: `Submit Argo Deployment`
+
 ```yaml
 name: ML Workflow Via Actions
 on:
@@ -47,15 +49,15 @@ jobs:
     - name: Submit Argo Deployment
       id: argo
       if: steps.validate.outputs.ARGO_TEST_RUN == 'True'
-      uses: machine-learning-apps/gke-argo@master
+      uses: machine-learning-apps/gke-argo@master #reference this Action
       with:  # most of the inputs below are used to obtain authentication credentials for GKE
         ARGO_URL: ${{ secrets.ARGO_URI }}
         APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         PROJECT_ID: ${{ secrets.GCLOUD_PROJECT_ID }}
-        location_zone: "us-west1-a"
-        cluster_name: "github-actions-demo"
-        workflow_yaml_path: argo/nlp-model.yaml # the argo workflow file relative to the repo's root.
-        parameter_file_path: argo/arguments-parameters.yml # optional parameter file.  This can be built dynamically inside the action or appended to from an existing file in the repo.
+        LOCATION_ZONE: "us-west1-a"
+        CLUSTER_NAME: "github-actions-demo"
+        WORKFLOW_YAML_PATH: argo/nlp-model.yaml # the argo workflow file relative to the repo's root.
+        PARAMETER_FILE_PATH: argo/arguments-parameters.yml # optional parameter file.  This can be built dynamically inside the action or appended to from an existing file in the repo.
         
     # A comment is made on the PR with the URL to the Argo dashboard for the run.
     - name: PR Comment - Argo Workflow URL
