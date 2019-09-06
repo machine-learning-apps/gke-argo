@@ -82,6 +82,7 @@ gcloud container clusters get-credentials "$INPUT_CLUSTER_NAME" --zone "$INPUT_L
 
 # If the optional argument PARAMETER_FILE_PATH is supplied, add additional -f <filename> argument to `argo submit` command
 if [ ! -z "$INPUT_PARAMETER_FILE_PATH" ]; then
+    echo "Parameter file path provided: $INPUT_PARAMETER_FILE_PATH"
     check_file_exists $INPUT_PARAMETER_FILE_PATH
     PARAM_FILE_CMD="-f $INPUT_PARAMETER_FILE_PATH"
 else
@@ -90,7 +91,7 @@ fi
 
 # Execute the command
 ARGO_CMD="argo submit $INPUT_WORKFLOW_YAML_PATH --name $WORKFLOW_NAME $PARAM_FILE_CMD"
-echo "executing command:\n$ARGO_CMD"
+echo "executing command: $ARGO_CMD"
 eval $ARGO_CMD
 
 #emit the outputs

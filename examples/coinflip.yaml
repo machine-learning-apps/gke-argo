@@ -21,6 +21,8 @@ spec:
           parameters:
           - name: heads-message
             value: "hello1"
+          - name: tails-message
+            value: "hello1"
       - name: tails
         template: tails
         when: "{{steps.flip-coin.outputs.result}} == tails"
