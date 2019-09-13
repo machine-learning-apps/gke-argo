@@ -69,7 +69,7 @@ jobs:
         WORKFLOW_URL: ${{ steps.argo.outputs.WORKFLOW_URL }}
 ```
 
-### Mandatory Arguments
+### Mandatory Inputs
 
 1. `ARGO_URL`: The endpoint where your Argo UI is hosted.  This is used to build the link for dashboard of unique runs.
 2. `APPLICATION_CREDENTIALS`: base64 encoded GCP application credentials (https://cloud.google.com/sdk/docs/authorizing)
@@ -78,7 +78,7 @@ jobs:
 5. `CLUSTER_NAME`: The name of your GKE K8s cluster
 6. `WORKFLOW_YAML_PATH`: The full path name including the filename of the YAML file that describes the workflow you want to run on Argo.  This should be relative to the root of the GitHub repository where the Action is triggered.
 
-### Optional Arguments
+### Optional Inputs
 
 1. `PARAMETER_FILE_PATH`: Parameter file that allows you to change variables in your workflow file.  One common use for this file in an Action is to append additional arguments with the output of other Actions.  For more dicussion on parameter files, see [the Argo docs](https://argoproj.github.io/docs/argo/examples/readme.html).
 
