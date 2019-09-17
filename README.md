@@ -2,6 +2,8 @@
 
 ## This Action Submits Workflows To [Argo](https://argoproj.github.io/) Running on [GKE](https://cloud.google.com/kubernetes-engine/)
 
+For a cloud-agnostic version of this action, look [here](https://github.com/machine-learning-apps/actions-argo)
+
 The purpose of this action is to allow automatic testing of [Argo Workflows](https://argoproj.github.io/argo) from GitHub for Kubernetes cluster running on GCP.  
 
 This action is a mechanism you can leverage to accomplish [CI/CD of Machine Learning](https://blog.paperspace.com/ci-cd-for-machine-learning-ai/).   This Action facilitates instantiating model training runs on the compute of your choice running on K8s, specifically on [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).  
@@ -87,3 +89,5 @@ jobs:
 You can reference the outputs of an action using [expression syntax](https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions), as illustrated in the last step in the example Action workflow above.
 
 1. `WORKFLOW_URL`: URL that is a link to the dashboard for the current run in Argo.  The dashboard looks like this:
+
+> ![alt text](images/argo-dashboard.png)
