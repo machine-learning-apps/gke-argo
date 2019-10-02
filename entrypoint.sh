@@ -55,6 +55,15 @@ check_env "INPUT_WORKFLOW_YAML_PATH"
 cd $GITHUB_WORKSPACE
 check_file_exists $INPUT_WORKFLOW_YAML_PATH
 
+# Allow SHA OVERRIDE
+if [ ! -z "$INPUT_SHA" ]; then
+    echo "SHA Override Provided: $SHA"
+    SHA=$INPUT_SHA
+else
+    SHA=$GITHUB_SHA
+fi
+
+
 # Validate the contents of the Argo Workflow File for the generateName field
 RUN_NAME_PREFIX=$(yaml_get_generateName $INPUT_WORKFLOW_YAML_PATH)
 if [ -z "${RUN_NAME_PREFIX-}" ]; then
@@ -65,7 +74,7 @@ fi
 ############ Construct the Run ID ############
 
 # run id is {metadata.generateName}-{shortSHA}-{randomstring}
-shortSHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
+shortSHA=$(echo "${SHA}" | cut -c1-7)
 WORKFLOW_NAME=${RUN_NAME_PREFIX}-${shortSHA}-$(randomstring)
 
 ############ Authenticate to GKE ############

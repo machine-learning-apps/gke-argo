@@ -83,6 +83,7 @@ jobs:
 ### Optional Inputs
 
 1. `PARAMETER_FILE_PATH`: Parameter file that allows you to change variables in your workflow file.  One common use for this file in an Action is to append additional arguments with the output of other Actions.  For more dicussion on parameter files, see [the Argo docs](https://argoproj.github.io/docs/argo/examples/readme.html).
+2. `SHA`: Normally, this action uses the system environment variable `GITHUB_SHA` to construct the run name for the Argo workflow.  However, you can override this if you supply this value.
 
 ### Outputs
 
