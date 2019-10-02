@@ -1,4 +1,4 @@
-FROM google/cloud-sdk
+FROM google/cloud-sdk:alpine
 
 LABEL "com.github.actions.name"="Submit Argo Workflows to GKE"
 LABEL "com.github.actions.description"="Trigger Argo (https://argoproj.github.io/) workflows That run on Google Kubernetes Engine (GKE) from GitHub"
