@@ -24,6 +24,10 @@ inputs:
     description: Parameter file that allows you to change variables in your workflow file.
     require: false
     default: ""
+  sha:
+    description: Supply a SHA for the run-id, otherwise uses the $GITHUB_SHA
+    require: false
+    default: ""
 outputs:
   WORKFLOW_URL:
     description: URL that is a link to the current run in Argo.
