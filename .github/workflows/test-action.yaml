@@ -10,7 +10,7 @@ jobs:
       id: argo
       uses: machine-learning-apps/gke-argo@master
       with:
-        argo_url: ${{ secrets.ARGO_URL }}
+        argo_url: ${{ secrets.ARGO_URI }}
         application_credentials: ${{ secrets.APPLICATION_CREDENTIALS }}
         project_id: ${{ secrets.PROJECT_ID }}
         location_zone: ${{ secrets.LOCATION_ZONE }}
